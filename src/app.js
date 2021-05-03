@@ -18,8 +18,8 @@ app.post('/post/bebidas', async (req, res) => {
 	try {
 		let paso = true
 
-		const { name, description, incredientes, preparacion, dificultad } = req.query
-		const validar = [name, description, incredientes, preparacion, dificultad]
+		const { nombre, description, incredientes, preparacion, dificultad } = req.query
+		const validar = [nombre, description, incredientes, preparacion, dificultad]
 
 		const ret = () => {
 			paso = false
@@ -30,7 +30,7 @@ app.post('/post/bebidas', async (req, res) => {
 		if (ret) {
 			const post = await prisma.bebidas.create({
 				data: {
-					name,
+					nombre,
 					description,
 					incredientes,
 					dificultad,
@@ -75,8 +75,8 @@ app.get('/get/bebidas/nombre/', async (req, res) => {
 	try {
 		const bebidas = await prisma.bebidas.findMany({
 			where: {
-				name: {
-					contains: req.query.name,
+				nombre: {
+					contains: req.query.nombre,
 				}
 			}
 		})

@@ -12,9 +12,9 @@ generator client {
 
 model Bebidas {
   id              Int       @default(autoincrement()) @id
-  name            String?
+  nombre          String
   description     String    @db.LongText
   incredientes    String    @db.LongText
   preparacion     String    @db.LongText
-  dificultad      String?
+  dificultad      String
 }
